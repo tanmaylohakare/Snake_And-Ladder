@@ -14,26 +14,32 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("WelCome Snake And Ladder");
+        int diceCount = 0;
         int playerPosition = START_POSITION;
         System.out.println("Player starts at position: " + playerPosition);
         Random random = new Random();
         while (playerPosition < WINNING_POSITION) {
             int dieRoll = random.nextInt(6) + 1;
-            System.out.println("Player rolls the die and gets: " + dieRoll);
+
+            diceCount++;
+            System.out.println("Player rolls the die and gets: " + dieRoll + " Dice count " + diceCount);
+
             int option = random.nextInt(3);
             switch (option) {
+
                 case NO_PLAY:
                     System.out.println("Player Stays In Same Position");
                     break;
+
                 case LADDER:
                     System.out.println("Player Moves Ahead by " + dieRoll);
-                    if(playerPosition + dieRoll<=WINNING_POSITION) {
+                    if (playerPosition + dieRoll <= WINNING_POSITION) {
                         playerPosition += dieRoll;
-                    }
-                    else {
-                        System.out.println("Players cannot exceed position 100 "+playerPosition);
+                    } else {
+                        System.out.println("Players cannot exceed position 100 " + playerPosition);
                     }
                     break;
+
                 case SNAKE:
                     System.out.println("Player Fall Down by " + dieRoll);
                     playerPosition -= dieRoll;
@@ -43,5 +49,10 @@ public class Main {
             }
             System.out.println("Player Current Position " + playerPosition);
         }
-        System.out.println("\nCongratulations! Player reached the winning position: " + WINNING_POSITION);}
+        System.out.println("\nCongratulations! Player reached the winning position: " + WINNING_POSITION);
+
+        System.out.println("Total Dice Count To Winning :" + diceCount);
+    }
+
+
 }
