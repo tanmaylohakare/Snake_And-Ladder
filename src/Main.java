@@ -6,7 +6,9 @@ import java.util.Scanner;
 public class Main {
 
     private static final int START_POSITION = 0;
-
+    private static final int NO_PLAY=0;
+    private static final int LADDER=1;
+    private static final int SNAKE=2;
 
     public static void main(String[] args) {
 
@@ -18,7 +20,23 @@ public class Main {
         Random random=new Random();
         int dieRoll=random.nextInt(6)+1;
         System.out.println("Player rolls the die and gets: "+dieRoll);
+        int option=random.nextInt(3);
+        switch(option) {
+            case NO_PLAY:
+                System.out.println("Player Stays In Same Position");
+                break;
+            case LADDER:
+                System.out.println("Player Moves Ahead by "+dieRoll);
+                playerPosition+=dieRoll;
+                break;
+            case SNAKE:
+                System.out.println("Player Fall Down by "+dieRoll);
+                playerPosition-=dieRoll;
+                if(playerPosition<0)
+                    playerPosition=0;
+                break;
+        }
+        System.out.println("Player Current Position "+playerPosition);
 
-        
 }
 }
