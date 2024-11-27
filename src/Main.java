@@ -14,7 +14,6 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("WelCome Snake And Ladder");
-        System.out.println("Welcome to Snake And Ladder Game\n");
         int playerPosition = START_POSITION;
         System.out.println("Player starts at position: " + playerPosition);
         Random random = new Random();
@@ -28,7 +27,12 @@ public class Main {
                     break;
                 case LADDER:
                     System.out.println("Player Moves Ahead by " + dieRoll);
-                    playerPosition += dieRoll;
+                    if(playerPosition + dieRoll<=WINNING_POSITION) {
+                        playerPosition += dieRoll;
+                    }
+                    else {
+                        System.out.println("Players cannot exceed position 100 "+playerPosition);
+                    }
                     break;
                 case SNAKE:
                     System.out.println("Player Fall Down by " + dieRoll);
