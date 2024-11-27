@@ -15,6 +15,10 @@ public class Main {
         System.out.println("Welcome to Snake And Ladder Game\n");
         int playerPosition = START_POSITION;
         System.out.println("Player starts at position: " + playerPosition);
+        Random random=new Random();
+        int dieRoll=random.nextInt(6)+1;
+        System.out.println("Player rolls the die and gets: "+dieRoll);
 
+        
 }
 }
